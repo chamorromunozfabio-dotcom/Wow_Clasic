@@ -1,9 +1,9 @@
 /* ============================================================
-   JUEGO: MEMORIA DE MACONDO
-   Juego de parejas sobre las obras de Gabo.
-   Cada obra tiene dos cartas: el TÍTULO y su AÑO + PISTA.
-   Animaciones: volteo 3D en CSS, sacudida al fallar,
-   pulso al acertar y lluvia de mariposas al ganar.
+   JUEGO: MEMORIA DE AZEROTH
+   Juego de parejas sobre las expansiones de WoW.
+   Cada expansion tiene dos cartas: el TITULO y su ANO + LEMA.
+   Animaciones: volteo 3D, sacudida al fallar,
+   pulso al acertar y lluvia de dragones al ganar.
    ============================================================ */
 
 (function memoryGame() {
@@ -16,24 +16,23 @@
   const winBox = document.getElementById("gameWin");
   const winText = document.getElementById("gameWinText");
 
-  /* ---------- Datos: 6 obras = 12 cartas ---------- */
-  const OBRAS = [
-    { id: "hojarasca", titulo: "La hojarasca",                          pista: "1955 · Nace Macondo" },
-    { id: "coronel",   titulo: "El coronel no tiene quien le escriba",  pista: "1961 · La carta que no llega" },
-    { id: "cien",      titulo: "Cien años de soledad",                  pista: "1967 · Los Buendía" },
-    { id: "cronica",   titulo: "Crónica de una muerte anunciada",       pista: "1981 · Un crimen anunciado" },
-    { id: "colera",    titulo: "El amor en los tiempos del cólera",     pista: "1985 · Medio siglo de espera" },
-    { id: "vivir",     titulo: "Vivir para contarla",                   pista: "2002 · Sus memorias" }
+  /* ---------- Datos: 6 expansiones = 12 cartas ---------- */
+  const EXPANSIONES = [
+    { id: "vanilla",  titulo: "World of Warcraft",       pista: "2004 · El Despertar" },
+    { id: "tbc",      titulo: "The Burning Crusade",     pista: "2007 · You are not prepared!" },
+    { id: "wotlk",    titulo: "Wrath of the Lich King",  pista: "2008 · El Rey Exanime" },
+    { id: "cata",     titulo: "Cataclysm",               pista: "2010 · La Furia de Alamuerte" },
+    { id: "legion",   titulo: "Legion",                  pista: "2016 · La Tumba de Sargeras" },
+    { id: "dragon",   titulo: "Dragonflight",            pista: "2022 · El Vuelo de los Dragones" }
   ];
 
-  let deck = [];        // cartas mezcladas
-  let flipped = [];     // cartas volteadas en el turno actual (máx. 2)
-  let matched = 0;      // parejas encontradas
+  let deck = [];
+  let flipped = [];
+  let matched = 0;
   let moves = 0;
-  let lock = false;     // bloquea clics mientras se resuelve un turno
+  let lock = false;
   let timer = null, seconds = 0, started = false;
 
-  /* ---------- Utilidades ---------- */
   function shuffle(arr) {
     for (let i = arr.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -56,12 +55,11 @@
     }, 1000);
   }
 
-  /* ---------- Construcción del tablero ---------- */
   function buildDeck() {
     deck = [];
-    OBRAS.forEach((o) => {
-      deck.push({ pair: o.id, face: o.titulo, kind: "titulo" });
-      deck.push({ pair: o.id, face: o.pista,  kind: "pista"  });
+    EXPANSIONES.forEach((e) => {
+      deck.push({ pair: e.id, face: e.titulo, kind: "titulo" });
+      deck.push({ pair: e.id, face: e.pista,  kind: "pista"  });
     });
     shuffle(deck);
   }
@@ -75,10 +73,15 @@
       btn.dataset.pair = card.pair;
       btn.dataset.index = i;
       btn.setAttribute("aria-label", "Carta oculta " + (i + 1));
-      btn.style.animationDelay = (i * 45) + "ms"; // entrada escalonada
+      btn.style.animationDelay = (i * 45) + "ms";
+      // Iconos tematicos por expansion para el reverso
+      const icons = {
+        vanilla: "🏰", tbc: "🔥", wotlk: "❄️", cata: "🌋", legion: "😈", dragon: "🐉"
+      };
+      const icon = "⚔️";
       btn.innerHTML =
         '<span class="mcard-inner">' +
-        '  <span class="mcard-front" aria-hidden="true">🦋</span>' +
+        '  <span class="mcard-front" aria-hidden="true">' + icon + '</span>' +
         '  <span class="mcard-back ' + card.kind + '">' + card.face + "</span>" +
         "</span>";
       btn.addEventListener("click", () => flip(btn));
@@ -86,7 +89,6 @@
     });
   }
 
-  /* ---------- Lógica del juego ---------- */
   function flip(cardEl) {
     if (lock || cardEl.classList.contains("is-flipped") || cardEl.classList.contains("is-matched")) return;
 
@@ -96,21 +98,18 @@
 
     if (flipped.length < 2) return;
 
-    // Turno completo
     moves++;
     movesEl.textContent = moves;
     const [a, b] = flipped;
 
     if (a.dataset.pair === b.dataset.pair) {
-      // ¡Pareja!
       matched++;
       pairsEl.textContent = matched;
       a.classList.add("is-matched");
       b.classList.add("is-matched");
       flipped = [];
-      if (matched === OBRAS.length) setTimeout(win, 650);
+      if (matched === EXPANSIONES.length) setTimeout(win, 650);
     } else {
-      // Fallo: sacudida y se ocultan de nuevo
       lock = true;
       a.classList.add("shake");
       b.classList.add("shake");
@@ -126,7 +125,7 @@
   function win() {
     clearInterval(timer);
     winText.textContent =
-      "Encontraste las 6 parejas en " + moves + " movimientos y " + formatTime(seconds) + ".";
+      "¡Forjaste la historia! Encontraste las 6 parejas en " + moves + " movimientos y " + formatTime(seconds) + ". ¡Por Azeroth!";
     winBox.hidden = false;
     requestAnimationFrame(() => winBox.classList.add("show"));
   }
@@ -147,5 +146,5 @@
   document.getElementById("gameRestart").addEventListener("click", reset);
   document.getElementById("gamePlayAgain").addEventListener("click", reset);
 
-  reset(); // primer tablero
+  reset();
 })();

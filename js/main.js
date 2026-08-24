@@ -1,97 +1,152 @@
 /* ============================================================
-   LA VIDA DE GABO — JavaScript
-   1. Mariposas amarillas en el hero (canvas)
-   2. Animaciones de aparición al hacer scroll (IntersectionObserver)
-   3. Contadores animados en las estadísticas
-   4. Menú hamburguesa en móvil
-   5. Botón "volver arriba"
+   WORLD OF WARCRAFT — CRONICAS DE AZEROTH
+   1. Brasas arcanas en el hero (canvas #embers)
+   2. Animaciones de aparicion al hacer scroll
+   3. Contadores animados
+   4. Menu hamburguesa
+   5. Boton "volver arriba"
    ============================================================ */
 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-/* ---------- 1. Mariposas amarillas (el guiño a Mauricio Babilonia) ---------- */
-(function butterflies() {
-  const canvas = document.getElementById("butterflies");
+/* ---------- 1. Brasas arcanas / chispas de forja ---------- */
+(function embers() {
+  const canvas = document.getElementById("embers") || document.getElementById("butterflies");
   if (!canvas || reducedMotion) return;
 
   const ctx = canvas.getContext("2d");
-  let width, height, flock = [];
+  let width, height, particles = [];
 
   function resize() {
     const rect = canvas.parentElement.getBoundingClientRect();
-    width = canvas.width = rect.width;
-    height = canvas.height = rect.height;
+    // Soporte high-DPI
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = rect.width * dpr;
+    canvas.height = rect.height * dpr;
+    canvas.style.width = rect.width + "px";
+    canvas.style.height = rect.height + "px";
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    width = rect.width;
+    height = rect.height;
   }
 
-  function makeButterfly() {
+  const COLORS = [
+    { core: "#ffe8a3", glow: "rgba(248,183,0,0.85)" },  // oro WoW
+    { core: "#ff8c42", glow: "rgba(255,128,0,0.65)" },  // fuego forja / legendario
+    { core: "#7ed3ff", glow: "rgba(0,112,221,0.55)" },  // arcano alianza
+    { core: "#ff6b6b", glow: "rgba(196,30,58,0.55)" },  // fel / horda
+    { core: "#c792ff", glow: "rgba(163,53,238,0.45)" }, // epico violeta
+  ];
+
+  function makeParticle() {
+    const c = COLORS[Math.floor(Math.random() * COLORS.length)];
     return {
       x: Math.random() * width,
-      y: Math.random() * height,
-      size: 5 + Math.random() * 8,          // tamaño del ala
-      angle: Math.random() * Math.PI * 2,   // dirección de vuelo
-      speed: 0.25 + Math.random() * 0.55,
-      flap: Math.random() * Math.PI * 2,    // fase del aleteo
-      flapSpeed: 0.12 + Math.random() * 0.12,
-      drift: (Math.random() - 0.5) * 0.02,  // giro suave
-      alpha: 0.5 + Math.random() * 0.5
+      y: Math.random() * height + height * 0.2,
+      vx: (Math.random() - 0.5) * 0.45,
+      vy: -0.35 - Math.random() * 1.1, // tienden a subir
+      size: 1.2 + Math.random() * 2.6,
+      alpha: 0.45 + Math.random() * 0.55,
+      pulse: Math.random() * Math.PI * 2,
+      pulseSpeed: 0.02 + Math.random() * 0.03,
+      drift: (Math.random() - 0.5) * 0.015,
+      color: c,
+      // 18% son runas flotantes mas grandes y lentas
+      isRune: Math.random() < 0.18,
+      runeChar: ["✦","⬥","◆","✧"][Math.floor(Math.random()*4)],
+      angle: Math.random()*Math.PI*2,
+      spin: (Math.random()-0.5)*0.008
     };
   }
 
-  function draw(b) {
-    const wing = Math.abs(Math.sin(b.flap)); // 0 = alas cerradas, 1 = abiertas
+  function draw(p) {
     ctx.save();
-    ctx.translate(b.x, b.y);
-    ctx.rotate(b.angle + Math.PI / 2);
-    ctx.globalAlpha = b.alpha;
-    ctx.fillStyle = "#f2c14e";
-
-    // Ala izquierda y derecha (elipses que se pliegan con el aleteo)
-    for (const side of [-1, 1]) {
+    ctx.globalAlpha = p.alpha * (0.7 + Math.abs(Math.sin(p.pulse)) * 0.3);
+    ctx.translate(p.x, p.y);
+    if (p.isRune) {
+      // Rune: glifo dorado con brillo exterior
+      ctx.rotate(p.angle);
+      ctx.shadowColor = p.color.glow;
+      ctx.shadowBlur = p.size * 5;
+      ctx.fillStyle = p.color.core;
+      ctx.font = `700 ${p.size * 6}px Cinzel, serif`;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText(p.runeChar, 0, 0);
+      // brillo interior
+      ctx.shadowBlur = 0;
+      ctx.fillStyle = "#fff";
+      ctx.globalAlpha *= 0.55;
+      ctx.fillText(p.runeChar, 0, 0);
+    } else {
+      // Brasa: nucleo + halo
+      const grad = ctx.createRadialGradient(0, 0, 0, 0, 0, p.size * 4);
+      grad.addColorStop(0, p.color.core);
+      grad.addColorStop(0.35, p.color.glow);
+      grad.addColorStop(1, "transparent");
+      ctx.fillStyle = grad;
       ctx.beginPath();
-      ctx.ellipse(
-        side * b.size * 0.55 * wing, 0,
-        b.size * 0.6 * Math.max(wing, 0.25), b.size,
-        side * 0.5, 0, Math.PI * 2
-      );
+      ctx.arc(0, 0, p.size * 4, 0, Math.PI * 2);
+      ctx.fill();
+      // nucleo solido
+      ctx.globalAlpha = p.alpha;
+      ctx.fillStyle = p.color.core;
+      ctx.shadowColor = p.color.glow;
+      ctx.shadowBlur = 6;
+      ctx.beginPath();
+      ctx.arc(0, 0, p.size * 0.9, 0, Math.PI * 2);
       ctx.fill();
     }
-
-    // Cuerpo
-    ctx.globalAlpha = b.alpha * 0.9;
-    ctx.fillStyle = "#b58a2a";
-    ctx.beginPath();
-    ctx.ellipse(0, 0, b.size * 0.14, b.size * 0.8, 0, 0, Math.PI * 2);
-    ctx.fill();
     ctx.restore();
   }
 
   function step() {
     ctx.clearRect(0, 0, width, height);
-    for (const b of flock) {
-      b.flap += b.flapSpeed;
-      b.angle += b.drift + Math.sin(b.flap * 0.3) * 0.01;
-      b.x += Math.cos(b.angle) * b.speed;
-      b.y += Math.sin(b.angle) * b.speed - 0.08; // tienden a subir
+    for (const p of particles) {
+      p.pulse += p.pulseSpeed;
+      p.angle += p.spin;
+      p.vx += Math.sin(p.pulse * 0.5) * 0.004 + p.drift;
+      p.x += p.vx;
+      p.y += p.vy;
+      // leve gravedad inversa + friccion
+      p.vy -= 0.002;
+      p.vx *= 0.999;
 
-      // Reaparecen por el lado contrario al salir
-      if (b.x < -20) b.x = width + 20;
-      if (b.x > width + 20) b.x = -20;
-      if (b.y < -20) b.y = height + 20;
-      if (b.y > height + 20) b.y = -20;
+      // Parpadeo de alpha
+      p.alpha += Math.sin(p.pulse) * 0.001;
+      p.alpha = Math.max(0.25, Math.min(0.95, p.alpha));
 
-      draw(b);
+      // Reciclaje
+      if (p.y < -20 || p.x < -30 || p.x > width + 30) {
+        p.x = Math.random() * width;
+        p.y = height + 12 + Math.random() * 30;
+        p.vx = (Math.random() - 0.5) * 0.45;
+        p.vy = -0.35 - Math.random() * 1.1;
+        p.alpha = 0.45 + Math.random() * 0.55;
+      }
+
+      draw(p);
     }
     requestAnimationFrame(step);
   }
 
   resize();
-  const count = Math.min(26, Math.max(10, Math.floor(width / 60)));
-  flock = Array.from({ length: count }, makeButterfly);
-  window.addEventListener("resize", resize);
+  const count = Math.min(42, Math.max(18, Math.floor(width / 32)));
+  particles = Array.from({ length: count }, makeParticle);
+  window.addEventListener("resize", () => {
+    resize();
+    // Reajustar cantidad si cambia mucho el ancho
+    const desired = Math.min(42, Math.max(18, Math.floor(width / 32)));
+    if (desired > particles.length) {
+      while (particles.length < desired) particles.push(makeParticle());
+    } else if (desired < particles.length) {
+      particles = particles.slice(0, desired);
+    }
+  });
   step();
 })();
 
-/* ---------- 2. Aparición al hacer scroll ---------- */
+/* ---------- 2. Aparicion al hacer scroll ---------- */
 (function scrollReveal() {
   const items = document.querySelectorAll(".reveal");
   if (reducedMotion || !("IntersectionObserver" in window)) {
@@ -104,7 +159,7 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matc
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("in-view");
-          observer.unobserve(entry.target); // solo anima una vez
+          observer.unobserve(entry.target);
         }
       });
     },
@@ -123,12 +178,12 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matc
     const target = parseInt(el.dataset.count, 10);
     if (reducedMotion) { el.textContent = target; return; }
 
-    const duration = 1400;
+    const duration = 1450;
     const start = performance.now();
 
     function tick(now) {
       const p = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - p, 3); // ease-out cúbico
+      const eased = 1 - Math.pow(1 - p, 3);
       el.textContent = Math.round(target * eased);
       if (p < 1) requestAnimationFrame(tick);
     }
@@ -150,7 +205,7 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matc
   nums.forEach((el) => observer.observe(el));
 })();
 
-/* ---------- 4. Menú hamburguesa ---------- */
+/* ---------- 4. Menu hamburguesa ---------- */
 (function mobileMenu() {
   const toggle = document.getElementById("navToggle");
   const links = document.getElementById("navLinks");
@@ -162,7 +217,6 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matc
     toggle.setAttribute("aria-expanded", String(open));
   });
 
-  // Cierra el menú al elegir un enlace
   links.querySelectorAll("a").forEach((a) =>
     a.addEventListener("click", () => {
       links.classList.remove("open");
@@ -172,7 +226,7 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matc
   );
 })();
 
-/* ---------- 5. Botón "volver arriba" ---------- */
+/* ---------- 5. Boton "volver arriba" ---------- */
 (function toTop() {
   const btn = document.getElementById("toTop");
   if (!btn) return;
