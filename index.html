@@ -3,206 +3,224 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="La vida de Gabo: biografía, obras, frases y legado de Gabriel García Márquez, Premio Nobel de Literatura 1982.">
-  <title>La vida de Gabo · Gabriel García Márquez</title>
+  <meta name="description" content="World of Warcraft: cronicas de Azeroth — historia, expansiones, facciones y legado de 20 años de aventura. De Vanilla a The War Within.">
+  <title>World of Warcraft · Cronicas de Azeroth</title>
 
-  <!-- Tipografías -->
+  <!-- Tipografias epicas -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Archivo:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Archivo:wght@500;700&family=Fraunces:opsz,wght@9..144,600;9..144,900&display=swap" rel="stylesheet">
 
   <link href="css/responsive.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 
-<!-- ============ NAVEGACIÓN ============ -->
+<!-- ============ NAVEGACION ============ -->
 <header class="site-header" id="inicio">
-  <nav class="nav container" aria-label="Navegación principal">
-    <a class="nav-brand" href="#inicio">Gabo<span class="nav-dot">.</span></a>
+  <nav class="nav container" aria-label="Navegacion principal">
+    <a class="nav-brand" href="#inicio"><span class="brand-icon">⚔️</span> Azeroth<span class="nav-dot">.</span></a>
 
-    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
 
     <ul class="nav-links" id="navLinks">
-      <li><a href="#biografia">Biografía</a></li>
-      <li><a href="#linea-tiempo">Línea de tiempo</a></li>
-      <li><a href="#obras">Obras</a></li>
-      <li><a href="#video">Discurso Nobel</a></li>
+      <li><a href="#historia">Historia</a></li>
+      <li><a href="#linea-tiempo">Expansiones</a></li>
+      <li><a href="#expansiones">Saga</a></li>
+      <li><a href="#video">Cinematica</a></li>
       <li><a href="#juego">Juego</a></li>
-      <li><a href="#centro-gabo">Centro Gabo</a></li>
+      <li><a href="#azeroth">Facciones</a></li>
     </ul>
   </nav>
 </header>
 
-<!-- ============ HERO con mariposas amarillas ============ -->
+<!-- ============ HERO con brasas arcanas ============ -->
 <section class="hero">
-  <canvas id="butterflies" aria-hidden="true"></canvas>
+  <canvas id="embers" aria-hidden="true"></canvas>
+  <div class="hero-runes" aria-hidden="true"></div>
 
   <div class="hero-content container">
-    <p class="eyebrow reveal">Aracataca, 1927 — Ciudad de México, 2014</p>
-    <h1 class="hero-title reveal">La vida de <em>Gabo</em></h1>
+    <p class="eyebrow reveal">Azeroth, 2004 — 2024 · 20 ANOS DE LEYENDA</p>
+    <h1 class="hero-title reveal">World of <em>Warcraft</em></h1>
     <p class="hero-sub reveal">
-      Gabriel García Márquez: periodista, novelista y padre del realismo mágico.
-      Premio Nobel de Literatura 1982.
+      Forja tu leyenda en Azeroth. Desde el despertar del Portal Oscuro hasta el vuelo de los
+      Dragones y los susurros de The War Within. <strong>Por la Horda. Por la Alianza.</strong>
     </p>
     <div class="hero-actions reveal">
-      <a class="btn btn-primary" href="#biografia">Conocer su historia</a>
-      <a class="btn btn-ghost" href="#obras">Ver sus obras</a>
+      <a class="btn btn-primary" href="#historia">Explorar Azeroth</a>
+      <a class="btn btn-ghost" href="#expansiones">Ver expansiones</a>
     </div>
   </div>
 
   <div class="hero-stats container">
-    <div class="stat reveal"><span class="stat-num" data-count="1982">0</span><span class="stat-label">Premio Nobel</span></div>
-    <div class="stat reveal"><span class="stat-num" data-count="46">0</span><span class="stat-label">idiomas traducido</span></div>
-    <div class="stat reveal"><span class="stat-num" data-count="50">0</span><span class="stat-label">millones de ejemplares de "Cien años de soledad"</span></div>
+    <div class="stat reveal"><span class="stat-num" data-count="2004">0</span><span class="stat-label">Nace la leyenda</span></div>
+    <div class="stat reveal"><span class="stat-num" data-count="11">0</span><span class="stat-label">expansiones epicas</span></div>
+    <div class="stat reveal"><span class="stat-num" data-count="100">0</span><span class="stat-label">millones de campeones</span></div>
   </div>
 </section>
 
 <main>
 
-  <!-- ============ BIOGRAFÍA ============ -->
-  <section class="section" id="biografia">
+  <!-- ============ HISTORIA / LORE ============ -->
+  <section class="section" id="historia">
     <div class="container grid grid-2">
 
       <article class="bio-text reveal">
-        <p class="eyebrow">Biografía</p>
-        <h2>Gabo, el irreverente</h2>
+        <p class="eyebrow">Cronicas de Azeroth</p>
+        <h2>Un mundo forjado en guerra y magia</h2>
         <p>
-          Gabriel José de la Concordia García Márquez nació el 6 de marzo de 1927 en Aracataca,
-          un pueblo del Caribe colombiano que más tarde se transformaría en Macondo, el escenario
-          mítico de sus novelas. Criado por sus abuelos maternos, creció entre las historias
-          fantásticas de su abuela y los relatos de guerra del coronel Nicolás Márquez, su abuelo.
+          Hace milenios los <strong>Titanes</strong> ordenaron Azeroth y encerraron a los Dioses Antiguos bajo la tierra.
+          De su sangre broto el <strong>Pozo de la Eternidad</strong>, fuente de magia arcana que atrajo a la
+          <strong>Legion Ardiente</strong> de Sargeras — el Titan Oscuro — y provoco la Guerra de los Ancestros.
         </p>
         <p>
-          Antes de ser novelista fue periodista: escribió en <em>El Universal</em> de Cartagena,
-          <em>El Heraldo</em> de Barranquilla y <em>El Espectador</em> de Bogotá. En Barranquilla
-          se unió al legendario Grupo de Barranquilla, donde descubrió a Faulkner, Kafka y
-          Virginia Woolf, influencias decisivas en su estilo.
+          El cataclismo partio el supercontinente de Kalimdor y nacieron los Reinos del Este. Alli, humanos de
+          <strong>Ventormenta</strong>, elfos de Quel'Thalas y enanos de Forjaz fundaron la <strong>Alianza</strong>.
+          Al otro lado del Gran Mar, los orcos exiliados, los trolls Darkspear y los tauren erigieron la
+          <strong>Horda</strong> en Durotar bajo Thrall.
         </p>
         <p>
-          En 1967 publicó <strong>"Cien años de soledad"</strong>, la saga de la familia Buendía
-          que lo consagró como una de las voces mayores de la lengua española y pieza central
-          del <em>boom</em> latinoamericano. En 1982 recibió el Premio Nobel de Literatura por
-          unir fantasía y realismo en un universo que refleja la vida y los conflictos de todo
-          un continente.
+          El 23 de noviembre de 2004 se abrio el Portal: <strong>World of Warcraft</strong> invitaba a millones de
+          jugadores a elegir faccion, clase y destino. Magos, paladines, cazadores, brujos, caballeros de la Muerte y
+          evocadores dracthyr han escrito desde entonces la historia viva mas grande del videojuego.
         </p>
         <p>
-          Murió el 17 de abril de 2014 en Ciudad de México, dejando un legado que sigue
-          inspirando a lectores, escritores y periodistas en todo el mundo.
+          De la corona de hielo de Arthas a las Islas Dragon, de la ira de Alamuerte al vacio que susurra en
+          <em>The War Within</em>, cada expansion ha expandido el mapa, el poder y el mito.
         </p>
       </article>
 
       <figure class="bio-figure reveal">
         <div class="bio-frame">
-          <img src="f.jpg" alt="Retrato de Gabriel García Márquez"
-               onerror="this.closest('.bio-frame').classList.add('no-photo'); this.remove();">
           <div class="bio-fallback" aria-hidden="true">
-            <span class="bio-initials">GGM</span>
+            <span class="bio-initials">WoW</span>
+            <span class="bio-sub">FOR AZEROTH</span>
           </div>
         </div>
-        <figcaption>El cronista de Macondo, entre el periodismo y la fábula.</figcaption>
+        <figcaption>Dos facciones. Un mundo. Tu leyenda.</figcaption>
       </figure>
 
     </div>
   </section>
 
-  <!-- ============ LÍNEA DE TIEMPO ============ -->
+  <!-- ============ LINEA DE TIEMPO - EXPANSIONES ============ -->
   <section class="section section-alt" id="linea-tiempo">
     <div class="container">
-      <p class="eyebrow reveal">Cronología</p>
-      <h2 class="reveal">Una vida para contarla</h2>
+      <p class="eyebrow reveal">Cronologia</p>
+      <h2 class="reveal">Veinte anos de expansiones</h2>
+      <p class="section-intro reveal">Cada expansion redefinio Azeroth. El nivel maximo subio, el mundo se rompio y los heroes cayeron. Revive la saga completa.</p>
 
       <ol class="timeline">
         <li class="timeline-item reveal">
-          <span class="timeline-year">1927</span>
-          <h3>Nace en Aracataca</h3>
-          <p>Llega al mundo en el Caribe colombiano, en la casa de sus abuelos, semilla del futuro Macondo.</p>
+          <span class="timeline-year">2004 — Vanilla</span>
+          <h3>World of Warcraft</h3>
+          <p>Azeroth despierta. Dos continentes: Kalimdor y Reinos del Este. Molten Core, Onyxia, Naxxramas original. Nivel 60.</p>
         </li>
         <li class="timeline-item reveal">
-          <span class="timeline-year">1948</span>
-          <h3>Comienza en el periodismo</h3>
-          <p>Abandona el derecho y empieza a publicar en la prensa de Cartagena y Barranquilla.</p>
+          <span class="timeline-year">2007 — TBC</span>
+          <h3>The Burning Crusade</h3>
+          <p>Se reabre el Portal Oscuro. Terrallende, Illidan en el Templo Oscuro. Elfos de sangre y draenei. Vuelo. Nivel 70.</p>
         </li>
         <li class="timeline-item reveal">
-          <span class="timeline-year">1955</span>
-          <h3>"La hojarasca"</h3>
-          <p>Publica su primera novela, donde aparece por primera vez el pueblo de Macondo.</p>
+          <span class="timeline-year">2008 — WotLK</span>
+          <h3>Wrath of the Lich King</h3>
+          <p>Rasganorte. Arthas, el Rey Exanima, espera en la Ciudadela de la Corona de Hielo. Cavaleiros da morte. Nivel 80.</p>
         </li>
         <li class="timeline-item reveal">
-          <span class="timeline-year">1967</span>
-          <h3>"Cien años de soledad"</h3>
-          <p>Escrita en Ciudad de México, la novela se convierte en un fenómeno mundial inmediato.</p>
+          <span class="timeline-year">2010 — Cataclysm</span>
+          <h3>Cataclysm</h3>
+          <p>Alamuerte rompe el mundo. Azeroth se quiebra, mil misiones redisenadas. Vuelo en Azeroth. Goblins y huargen. Nivel 85.</p>
         </li>
         <li class="timeline-item reveal">
-          <span class="timeline-year">1982</span>
-          <h3>Premio Nobel de Literatura</h3>
-          <p>Recibe el Nobel en Estocolmo y pronuncia el célebre discurso "La soledad de América Latina".</p>
+          <span class="timeline-year">2012 — MoP</span>
+          <h3>Mists of Pandaria</h3>
+          <p>La niebla se disipa: Pandaria. Pandaren, monjes, Garrosh y el asedio a Orgrimmar. El continente mas pacifico… y mas tragico. Nivel 90.</p>
         </li>
         <li class="timeline-item reveal">
-          <span class="timeline-year">1994</span>
-          <h3>Fundación de periodismo</h3>
-          <p>Crea en Cartagena la Fundación para un Nuevo Periodismo Iberoamericano (hoy Fundación Gabo).</p>
+          <span class="timeline-year">2014 — WoD</span>
+          <h3>Warlords of Draenor</h3>
+          <p>Draenor alternativo. Grommash y la Horda de Hierro. Fortalezas (Garrison). Nivel 100.</p>
         </li>
         <li class="timeline-item reveal">
-          <span class="timeline-year">2014</span>
-          <h3>Adiós al maestro</h3>
-          <p>Fallece en Ciudad de México; Colombia decreta tres días de duelo nacional.</p>
+          <span class="timeline-year">2016 — Legion</span>
+          <h3>Legion</h3>
+          <p>La Legion regresa. Islas Abruptas, cazadores de demonios, armas artefacto. Sargeras hunde su espada en Silithus. Nivel 110.</p>
+        </li>
+        <li class="timeline-item reveal">
+          <span class="timeline-year">2018 — BfA</span>
+          <h3>Battle for Azeroth</h3>
+          <p>La guerra total: Kul Tiras vs Zandalar. Sylvanas quema Teldrassil. Corazon de Azeroth. Nivel 120.</p>
+        </li>
+        <li class="timeline-item reveal">
+          <span class="timeline-year">2020 — Shadowlands</span>
+          <h3>Shadowlands</h3>
+          <p>Mas alla del velo: las Tierras Sombrías. El Carcelero, Sylvanas y el destino de Anduin. Pacto de Curias. Nivel 60 (squish).</p>
+        </li>
+        <li class="timeline-item reveal">
+          <span class="timeline-year">2022 — Dragonflight</span>
+          <h3>Dragonflight</h3>
+          <p>Las Islas Dragon despiertan. Alexstrasza y los Aspectos recuperan su poder. Dracthyr evocadores. Vuelo de dragones. Nivel 70.</p>
+        </li>
+        <li class="timeline-item reveal">
+          <span class="timeline-year">2024 — TWW</span>
+          <h3>The War Within</h3>
+          <p>La Saga del Alma-Mundo comienza. Xal'atath, los nerubianos de Azj-Kahet y el Corazon de Azeroth laten bajo Khaz Algar. Nivel 80.</p>
         </li>
       </ol>
     </div>
   </section>
 
-  <!-- ============ OBRAS ============ -->
-  <section class="section" id="obras">
+  <!-- ============ EXPANSIONES - CARTAS ============ -->
+  <section class="section" id="expansiones">
     <div class="container">
-      <p class="eyebrow reveal">Bibliografía esencial</p>
-      <h2 class="reveal">Sus obras</h2>
-      <p class="section-intro reveal">Novelas, crónicas y memorias que definieron el realismo mágico. Haz clic en cada tarjeta para leer más en Wikipedia.</p>
+      <p class="eyebrow reveal">Saga epica</p>
+      <h2 class="reveal">Expansiones legendarias</h2>
+      <p class="section-intro reveal">Seis hitos que definieron a una generacion. Haz clic para explorar su wiki oficial.</p>
 
       <div class="grid cards-grid">
 
         <article class="card reveal">
-          <span class="card-year">1967</span>
-          <h3>Cien años de soledad</h3>
-          <p>La saga de siete generaciones de los Buendía en Macondo, obra cumbre del realismo mágico.</p>
-          <a class="card-link" href="https://es.wikipedia.org/wiki/Cien_a%C3%B1os_de_soledad" target="_blank" rel="noopener">Leer más →</a>
+          <span class="card-year">2004 — Vanilla</span>
+          <h3>World of Warcraft</h3>
+          <p>El origen. Dos continentes inexplorados, 40 jugadores contra Ragnaros y el sueno imposible de llegar a 60.</p>
+          <a class="card-link" href="https://wowpedia.fandom.com/wiki/World_of_Warcraft" target="_blank" rel="noopener">Explorar →</a>
         </article>
 
         <article class="card reveal">
-          <span class="card-year">1961</span>
-          <h3>El coronel no tiene quien le escriba</h3>
-          <p>Un viejo coronel espera, con dignidad y hambre, la pensión de guerra que nunca llega.</p>
-          <a class="card-link" href="https://es.wikipedia.org/wiki/El_coronel_no_tiene_quien_le_escriba" target="_blank" rel="noopener">Leer más →</a>
+          <span class="card-year">2007 — TBC</span>
+          <h3>The Burning Crusade</h3>
+          <p>Cruza el Portal Oscuro. Illidan te espera: “You are not prepared!”. Primera expansion, vuelo y elfas de sangre.</p>
+          <a class="card-link" href="https://wowpedia.fandom.com/wiki/The_Burning_Crusade" target="_blank" rel="noopener">Explorar →</a>
         </article>
 
         <article class="card reveal">
-          <span class="card-year">1981</span>
-          <h3>Crónica de una muerte anunciada</h3>
-          <p>La reconstrucción, con pulso de reportero, de un crimen que todo un pueblo vio venir.</p>
-          <a class="card-link" href="https://es.wikipedia.org/wiki/Cr%C3%B3nica_de_una_muerte_anunciada" target="_blank" rel="noopener">Leer más →</a>
+          <span class="card-year">2008 — WotLK</span>
+          <h3>Wrath of the Lich King</h3>
+          <p>Rasganorte, el dolor de Arthas y la frase grabada en hielo. La expansion mas querida por la comunidad.</p>
+          <a class="card-link" href="https://wowpedia.fandom.com/wiki/Wrath_of_the_Lich_King" target="_blank" rel="noopener">Explorar →</a>
         </article>
 
         <article class="card reveal">
-          <span class="card-year">1985</span>
-          <h3>El amor en los tiempos del cólera</h3>
-          <p>Florentino Ariza espera más de medio siglo por el amor de Fermina Daza.</p>
-          <a class="card-link" href="https://es.wikipedia.org/wiki/El_amor_en_los_tiempos_del_c%C3%B3lera" target="_blank" rel="noopener">Leer más →</a>
+          <span class="card-year">2010 — Cataclysm</span>
+          <h3>Cataclysm</h3>
+          <p>Alamuerte surge del Maelstrom y parte el mundo en dos. Mil zonas rehechas y el vuelo libre sobre Azeroth.</p>
+          <a class="card-link" href="https://wowpedia.fandom.com/wiki/Cataclysm" target="_blank" rel="noopener">Explorar →</a>
         </article>
 
         <article class="card reveal">
-          <span class="card-year">2002</span>
-          <h3>Vivir para contarla</h3>
-          <p>Sus memorias: la infancia en Aracataca, el periodismo y el nacimiento de un escritor.</p>
-          <a class="card-link" href="https://es.wikipedia.org/wiki/Vivir_para_contarla" target="_blank" rel="noopener">Leer más →</a>
+          <span class="card-year">2016 — Legion</span>
+          <h3>Legion</h3>
+          <p>Demonios infinitos. Illidan regresa, las armas artefacto eligen a su portador y la tumba de Sargeras se abre.</p>
+          <a class="card-link" href="https://wowpedia.fandom.com/wiki/Legion" target="_blank" rel="noopener">Explorar →</a>
         </article>
 
         <article class="card reveal">
-          <span class="card-year">2004</span>
-          <h3>Memoria de mis putas tristes</h3>
-          <p>Su última novela publicada en vida: una meditación sobre la vejez y el amor tardío.</p>
-          <a class="card-link" href="https://es.wikipedia.org/wiki/Memorias_de_mis_putas_tristes" target="_blank" rel="noopener">Leer más →</a>
+          <span class="card-year">2022 — Dragonflight</span>
+          <h3>Dragonflight</h3>
+          <p>Los Vuelos recuperan su aspecto. Monta tu dragon, personaliza su vuelo y despierta la magia de las Islas Dragon.</p>
+          <a class="card-link" href="https://wowpedia.fandom.com/wiki/Dragonflight" target="_blank" rel="noopener">Explorar →</a>
         </article>
 
       </div>
@@ -213,8 +231,8 @@
   <section class="section quote-band">
     <div class="container">
       <blockquote class="big-quote reveal">
-        <p>«La vida no es la que uno vivió, sino la que uno recuerda»</p>
-        <cite>— Gabriel García Márquez, epígrafe de <em>Vivir para contarla</em></cite>
+        <p>«You are not prepared!»</p>
+        <cite>— Illidan Tempestira, The Burning Crusade · La frase que definio a una generacion</cite>
       </blockquote>
     </div>
   </section>
@@ -223,24 +241,23 @@
   <section class="section section-alt" id="video">
     <div class="container grid grid-2">
       <div class="video-text reveal">
-        <p class="eyebrow">8 de diciembre de 1982 · Estocolmo</p>
-        <h2>"La soledad de América Latina"</h2>
+        <p class="eyebrow">Cinematicas legendarias</p>
+        <h2>"La guerra nos ha cambiado"</h2>
         <p>
-          Al recibir el Nobel, Gabo pronunció uno de los discursos más recordados de la historia
-          del premio. En él reivindicó la realidad desmesurada de América Latina —sus dictaduras,
-          exilios y maravillas— y defendió el derecho del continente a ser comprendido con sus
-          propios esquemas, no con los de Europa.
+          Desde el trailer original de 2004 hasta <em>The War Within</em>, las cinematicas de Blizzard son cine.
+          En Battle for Azeroth, Anduin y Sylvanas encarnan la guerra total en la Batalla por Lordaeron — fuego,
+          vesania y la pregunta que persigue a Azeroth: ¿que vale la pena defender?
         </p>
         <p>
-          El discurso cierra con un llamado a una «utopía de la vida» donde las estirpes condenadas
-          a cien años de soledad tengan una segunda oportunidad sobre la tierra.
+          Cada expansion abre con un corto que marca epoca: la Corona de Hielo, la furia de Alamuerte,
+          el regreso de Illidan y el vuelo de Alexstrasza. Aqui, la batalla mas brutal de la Horda contra la Alianza.
         </p>
       </div>
 
       <div class="video-wrap reveal">
         <iframe
-          src="https://www.youtube.com/embed/3uRbIC27YCM"
-          title="Discurso Nobel de Gabriel García Márquez (1982)"
+          src="https://www.youtube.com/embed/eW36c7Yfuw0"
+          title="World of Warcraft - Battle for Azeroth Cinematica"
           loading="lazy"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen></iframe>
@@ -248,15 +265,15 @@
     </div>
   </section>
 
-  <!-- ============ JUEGO: MEMORIA DE MACONDO ============ -->
+  <!-- ============ JUEGO: MEMORIA DE AZEROTH ============ -->
   <section class="section" id="juego">
     <div class="container">
-      <p class="eyebrow reveal">Juega y aprende</p>
-      <h2 class="reveal">Memoria de Macondo</h2>
+      <p class="eyebrow reveal">Forja tu memoria</p>
+      <h2 class="reveal">Memoria de Azeroth</h2>
       <p class="section-intro reveal">
-        Encuentra las parejas: cada <strong>obra de Gabo</strong> tiene su carta gemela con el
-        <strong>año y una pista</strong>. Voltea dos cartas por turno; si coinciden, se quedan
-        abiertas. ¡Completa el tablero en el menor número de movimientos!
+        Demuestra que conoces la cronologia: cada <strong>expansion</strong> tiene su carta gemela con el
+        <strong>ano y su lema</strong>. Voltea dos cartas por turno; si coinciden, quedan selladas.
+        ¡Completa el tablero antes de que se agote tu mana!
       </p>
 
       <div class="game-hud reveal">
@@ -272,9 +289,9 @@
       <div class="game-win" id="gameWin" hidden>
         <div class="game-win-card">
           <div class="win-butterflies" aria-hidden="true">
-            <span>🦋</span><span>🦋</span><span>🦋</span><span>🦋</span><span>🦋</span>
+            <span>🐉</span><span>⚔️</span><span>🛡️</span><span>🔥</span><span>✨</span>
           </div>
-          <h3>¡Macondo recuperó su memoria!</h3>
+          <h3>¡Azeroth recordada!</h3>
           <p id="gameWinText">Completaste el tablero.</p>
           <button class="btn btn-primary" id="gamePlayAgain">Jugar de nuevo</button>
         </div>
@@ -282,47 +299,74 @@
     </div>
   </section>
 
-  <!-- ============ CENTRO GABO ============ -->
-  <section class="section section-alt" id="centro-gabo">
+  <!-- ============ FACTIONS - AZEROTH ============ -->
+  <section class="section section-alt" id="azeroth">
     <div class="container">
-      <p class="eyebrow reveal">Cartagena de Indias, Colombia</p>
-      <h2 class="reveal">El Centro Gabo</h2>
+      <p class="eyebrow reveal">Elige tu destino</p>
+      <h2 class="reveal">Facciones de Azeroth</h2>
       <p class="section-intro reveal">
-        El <a href="https://centrogabo.org/" target="_blank" rel="noopener">Centro Gabo</a> es una
-        iniciativa de la Fundación Gabo dedicada a descubrir, conservar y vivir el legado de
-        Gabriel García Márquez: un espacio de innovación cultural, educativa y digital que inspira
-        a niños, jóvenes y ciudadanos del mundo desde Cartagena.
+        Dos estandartes ondean sobre Azeroth. La <strong>Alianza</strong> defiende la luz y el orden desde Ventormenta;
+        la <strong>Horda</strong> lucha por la supervivencia y el honor desde Orgrimmar. ¿Con quien lucharas?
       </p>
 
       <div class="grid grid-2 centro-grid">
-        <article class="centro-card reveal">
-          <h3>Gabo y su legado</h3>
+        <article class="centro-card reveal faction-alliance">
+          <h3>🛡️ La Alianza</h3>
           <p>
-            El portal reúne su biografía, una cronología interactiva, la sección
-            <em>Contemos a Gabo</em> con historias sobre su vida y obra, <em>Gabo Habla</em>
-            con entrevistas históricas, y una <em>Memoria Colectiva</em> construida con
-            testimonios y anécdotas de lectores de todo el mundo.
+            Humanos, enanos, elfos de la noche, gnomos, draenei, huargen y dracthyr. Capitale: <strong>Ventormenta</strong>.
+            Liderada por Anduin Wrynn, Turalyon y Jaina Valiente. Su lema: <em>“Por la Alianza”</em>.
+            Defensora de la Luz, la arcano de Dalaran y los bosques de Elwynn.
           </p>
           <ul class="centro-links">
-            <li><a href="https://centrogabo.org/gabo/contemos-gabo/quien-fue-gabriel-garcia-marquez" target="_blank" rel="noopener">Biografía en Centro Gabo</a></li>
-            <li><a href="https://centrogabo.org/index.php/gabo/cronologia" target="_blank" rel="noopener">Cronología</a></li>
-            <li><a href="https://centrogabo.org/gabo/gabo-habla" target="_blank" rel="noopener">Gabo Habla (entrevistas)</a></li>
-            <li><a href="https://centrogabo.org/gabo/memoria-colectiva" target="_blank" rel="noopener">Memoria Colectiva</a></li>
+            <li><a href="https://wowpedia.fandom.com/wiki/Alliance" target="_blank" rel="noopener">Historia de la Alianza</a></li>
+            <li><a href="https://wowpedia.fandom.com/wiki/Stormwind_City" target="_blank" rel="noopener">Ventormenta</a></li>
+            <li><a href="https://worldofwarcraft.blizzard.com/es-es/game/races/human" target="_blank" rel="noopener">Razas de la Alianza</a></li>
+            <li><a href="https://wowpedia.fandom.com/wiki/Anduin_Wrynn" target="_blank" rel="noopener">Anduin Wrynn</a></li>
+          </ul>
+        </article>
+
+        <article class="centro-card reveal faction-horde">
+          <h3>🔥 La Horda</h3>
+          <p>
+            Orcos, no-muertos, tauren, trolls, elfos de sangre, goblins y vulpera. Capital: <strong>Orgrimmar</strong>.
+            Forjada por Thrall, hoy liderada por el consejo. Su grito: <em>“¡Por la Horda!”</em>.
+            Supervivencia, chamansmo y el recuerdo eterno de Durotan.
+          </p>
+          <ul class="centro-links">
+            <li><a href="https://wowpedia.fandom.com/wiki/Horde" target="_blank" rel="noopener">Historia de la Horda</a></li>
+            <li><a href="https://wowpedia.fandom.com/wiki/Orgrimmar" target="_blank" rel="noopener">Orgrimmar</a></li>
+            <li><a href="https://worldofwarcraft.blizzard.com/es-es/game/races/orc" target="_blank" rel="noopener">Razas de la Horda</a></li>
+            <li><a href="https://wowpedia.fandom.com/wiki/Thrall" target="_blank" rel="noopener">Thrall, el Chamán</a></li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="grid grid-2 centro-grid" style="margin-top: 2rem;">
+        <article class="centro-card reveal">
+          <h3>⚔️ Clases legendarias</h3>
+          <p>
+            13 clases, 39 especializaciones. Del <strong>Paladin</strong> luz al <strong>Caballero de la Muerte</strong>
+            de Arthas, del <strong>Cazador de Demonios</strong> de Illidan al <strong>Evocador</strong> dracthyr de Dragonflight.
+          </p>
+          <ul class="centro-links">
+            <li><a href="https://worldofwarcraft.blizzard.com/es-es/game/classes" target="_blank" rel="noopener">Todas las clases</a></li>
+            <li><a href="https://wowpedia.fandom.com/wiki/Death_knight" target="_blank" rel="noopener">Caballero de la Muerte</a></li>
+            <li><a href="https://wowpedia.fandom.com/wiki/Demon_hunter" target="_blank" rel="noopener">Cazador de Demonios</a></li>
+            <li><a href="https://wowpedia.fandom.com/wiki/Evoker" target="_blank" rel="noopener">Evocador Dracthyr</a></li>
           </ul>
         </article>
 
         <article class="centro-card reveal">
-          <h3>Formación virtual gratuita</h3>
+          <h3>🗺️ Continentes de Azeroth</h3>
           <p>
-            En su plataforma de <a href="https://centrogabo.org/formacion-virtual/" target="_blank" rel="noopener">formación
-            virtual</a>, la Fundación Gabo ofrece cursos de acceso libre inspirados en el método
-            de taller y en la memoria del nobel:
+            Explora cinco continentes y mas alla: <strong>Reinos del Este, Kalimdor, Terrallende, Rasganorte, Pandaria,
+            Islas Abruptas, Zandalar, Kul Tiras, Tierras Sombrias, Islas Dragon</strong> y ahora <strong>Khaz Algar</strong>.
           </p>
           <ul class="centro-links">
-            <li><a href="https://centrogabo.org/formacion-virtual/course/view.php?id=71" target="_blank" rel="noopener"><strong>La mochila de Gabo</strong></a> — educación mediática digital: identificar la desinformación y usar la IA con criterio.</li>
-            <li><a href="https://centrogabo.org/formacion-virtual/course/view.php?id=61" target="_blank" rel="noopener"><strong>Cronicando con Gabo</strong></a> — periodismo escolar: escribir noticias, entrevistar y contar historias.</li>
-            <li><a href="https://centrogabo.org/formacion-virtual/course/view.php?id=70" target="_blank" rel="noopener"><strong>Punto y aparte</strong></a> — herramientas para investigar y crear contenidos multiformato.</li>
-            <li><a href="https://centrogabo.org/formacion-virtual/course/view.php?id=69" target="_blank" rel="noopener"><strong>Septimus</strong></a> — análisis e interpretación de textos y datos.</li>
+            <li><a href="https://wowpedia.fandom.com/wiki/Azeroth_(world)" target="_blank" rel="noopener">El mundo de Azeroth</a></li>
+            <li><a href="https://wowpedia.fandom.com/wiki/Khaz_Algar" target="_blank" rel="noopener">Khaz Algar — The War Within</a></li>
+            <li><a href="https://wowpedia.fandom.com/wiki/Dragon_Isles" target="_blank" rel="noopener">Islas Dragon</a></li>
+            <li><a href="https://worldofwarcraft.blizzard.com/es-es/" target="_blank" rel="noopener">Sitio oficial WoW</a></li>
           </ul>
         </article>
       </div>
@@ -333,23 +377,23 @@
   <section class="section" id="noticias">
     <div class="container">
       <p class="eyebrow reveal">Noticias</p>
-      <h2 class="reveal">Actualidad garciamarquiana</h2>
+      <h2 class="reveal">Noticias de Azeroth</h2>
 
       <div class="grid news-grid">
         <article class="news-item reveal">
-          <time datetime="2024-11-14">14 Nov 2024</time>
-          <h3>Rediseño del sitio</h3>
-          <p>Nueva versión responsiva del sitio "La vida de Gabo", con grillas CSS, animaciones y contenido ampliado.</p>
+          <time datetime="2024-08-26">26 Ago 2024</time>
+          <h3>The War Within ya esta aqui</h3>
+          <p>La Saga del Alma-Mundo arranca: Khaz Algar, las profundidades nerubianas y el regreso de Xal'atath. Nivel 80 y bandas en Azj-Kahet.</p>
         </article>
         <article class="news-item reveal">
-          <time datetime="2023-12-06">Legado</time>
-          <h3>Macondo en pantalla</h3>
-          <p>"Cien años de soledad" llegó a la televisión como serie, rodada en Colombia y en español, tal como pidió la familia del escritor.</p>
+          <time datetime="2024-11-23">23 Nov 2024</time>
+          <h3>20 Aniversario de WoW</h3>
+          <p>Blizzard celebra 20 anos con evento mundial, mazmorras clasicas reimaginadas y la armadura Tier 2 remasterizada.</p>
         </article>
         <article class="news-item reveal">
-          <time datetime="2014-04-17">Archivo</time>
-          <h3>La Fundación Gabo</h3>
-          <p>Creada por el propio Gabo en Cartagena, sigue formando periodistas de toda Iberoamérica y entregando el Premio Gabo.</p>
+          <time datetime="2022-11-28">28 Nov 2022</time>
+          <h3>Dragonflight despliega alas</h3>
+          <p>Surca los cielos con el nuevo sistema de vuelo de dragones, personaliza tu draco y recupera el poder de los Aspectos.</p>
         </article>
       </div>
     </div>
@@ -361,32 +405,32 @@
 <footer class="site-footer">
   <div class="container footer-grid">
     <div>
-      <p class="footer-brand">Gabo<span class="nav-dot">.</span></p>
-      <p>Un homenaje a Gabriel García Márquez (1927–2014).</p>
+      <p class="footer-brand">Azeroth<span class="nav-dot">.</span></p>
+      <p>Un homenaje a World of Warcraft — 20 anos de aventura.<br>No afiliado a Blizzard Entertainment.</p>
     </div>
     <nav aria-label="Enlaces del pie">
       <ul class="footer-links">
-        <li><a href="#biografia">Biografía</a></li>
-        <li><a href="#obras">Obras</a></li>
-        <li><a href="#video">Discurso Nobel</a></li>
+        <li><a href="#historia">Historia</a></li>
+        <li><a href="#expansiones">Expansiones</a></li>
+        <li><a href="#video">Cinematica</a></li>
       </ul>
     </nav>
-    <p class="footer-credit">AdSo resizing · Sitio de ejemplo con HTML semántico, CSS Grid y JS.</p>
+    <p class="footer-credit">Hecho para fans · HTML semántico, CSS Grid y JS vanilla · ¡Por Azeroth!</p>
   </div>
 </footer>
 
 <a href="#inicio" class="to-top" id="toTop" aria-label="Volver arriba">↑</a>
 
-<!-- ============ CHATBOT "PREGÚNTALE A GABO" ============ -->
-<button class="chat-fab" id="chatFab" aria-label="Abrir chat sobre Gabo" aria-expanded="false">
-  <span class="chat-fab-icon">🦋</span>
+<!-- ============ CHATBOT "ORACULO DE AZEROTH" ============ -->
+<button class="chat-fab" id="chatFab" aria-label="Abrir oraculo de Azeroth" aria-expanded="false">
+  <span class="chat-fab-icon">🐉</span>
 </button>
 
 <div class="chat-window" id="chatWindow" hidden>
   <div class="chat-header">
     <div>
-      <p class="chat-title">Pregúntale a Gabo</p>
-      <p class="chat-sub">Bot sobre su vida, obras y el Centro Gabo</p>
+      <p class="chat-title">Oraculo de Azeroth</p>
+      <p class="chat-sub">Lore, expansiones y facciones · WoW</p>
     </div>
     <button class="chat-close" id="chatClose" aria-label="Cerrar chat">×</button>
   </div>
@@ -396,7 +440,7 @@
   <div class="chat-chips" id="chatChips"></div>
 
   <form class="chat-input-row" id="chatForm" autocomplete="off">
-    <input type="text" id="chatInput" placeholder="Escribe tu pregunta…" aria-label="Escribe tu pregunta">
+    <input type="text" id="chatInput" placeholder="Pregunta por una expansion, raza o jefe…" aria-label="Escribe tu pregunta">
     <button type="submit" class="chat-send" aria-label="Enviar">➤</button>
   </form>
 </div>
