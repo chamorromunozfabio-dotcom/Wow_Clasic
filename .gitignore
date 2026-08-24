@@ -1,0 +1,20 @@
+# Dependencias y sistema
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+.cache/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Entornos
+.env
+.env.local
+node_modules/
+dist/
+build/
